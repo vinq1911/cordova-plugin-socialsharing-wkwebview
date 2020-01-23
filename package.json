@@ -34,12 +34,6 @@
     "cordova-android",
     "cordova-windows"
   ],
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=3.0.0"
-    }
-  ],
   "author": "Eddy Verbruggen - @EddyVerbruggen",
   "license": "MIT",
   "bugs": {
