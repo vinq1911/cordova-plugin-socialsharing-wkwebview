@@ -31,19 +31,16 @@ static NSString *const kShareOptionIPadCoordinates = @"iPadCoordinates";
 }
 
 - (NSString*)getIPadPopupCoordinates {
-  // see https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/issues/1052
-  return nil;
-  /*
+  // here, I fixd it
   if (_popupCoordinates != nil) {
     return _popupCoordinates;
   }
-  if ([self.webView respondsToSelector:@selector(stringByEvaluatingJavaScriptFromString:)]) {
-    return [(UIWebView*)self.webView stringByEvaluatingJavaScriptFromString:@"window.plugins.socialsharing.iPadPopupCoordinates();"];
+  if ([self.webView respondsToSelector:@selector(evaluateJavaScript:)]) {
+    return [(WKWebView*)self.webView evaluateJavaScript:@"window.plugins.socialsharing.iPadPopupCoordinates();"];
   } else {
-    // prolly a wkwebview, ignoring for now
+    // that other webview is now put into sleep forever
     return nil;
   }
-  */
 }
 
 - (void)setIPadPopupCoordinates:(CDVInvokedUrlCommand*)command {
